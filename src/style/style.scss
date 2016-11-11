@@ -1,0 +1,221 @@
+@import url(http://fonts.googleapis.com/earlyaccess/notosansjp.css);
+@mixin transition($property, $duration, $timing, $delay) {
+	  -webkit-transition-property : $property;
+    -webkit-transition-duration : $duration;
+    -webkit-transition-timing-function: $timing;
+    -webkit-transition-delay: $delay;
+    -webkit-transform: translate3d(0, 0, 0);
+    -webkit-backface-visibility:hidden;
+    transition-property : $property;
+    transition-duration : $duration;
+    transition-delay : $delay;
+    transition-timing-function : $timing;
+    transform : translate3d(0, 0, 0);
+    backface-visibility:hidden;
+    -webkit-perspective: 1000;
+}
+$submenu_wrapper_width:540px;
+$mainmenu_wrapper_width:340px;
+$mainmenu_wrapper_sub_width:240px;
+$mainmenu_item_width:300px;
+
+html {
+  font-family: 'Noto Sans JP', sans-serif;
+}
+body {
+  margin:0;
+  padding: 0;
+}
+
+#container {
+  position: relative;
+  width:100%;
+  height: 100vh;
+  overflow: hidden;
+  background:#2c3e50;
+  background-image:url(image/bg2.jpg);
+  background-position: center center;
+  background-size: cover;
+  content:'';
+}
+
+#container {
+  &.full_screen {
+    #screen {
+      top:0;
+      left:0;
+      width:100%;
+      height: 100%;
+    }
+  }
+  &.main_menu {
+    #screen {
+      left:-200px;
+      transform: scale(0.6);
+      transform-origin:center;
+    }
+    #menu {
+      right:-$submenu_wrapper_width + 50px;
+    }
+  }
+  &.full_menu {
+    #screen {
+      left:30px;
+      top:160px;
+      transform: scale(0.4);
+      transform-origin:top left;
+    }
+    #menu {
+      width:$mainmenu_wrapper_sub_width + $submenu_wrapper_width;
+      right:0;
+      .mainmenu {
+        width: $mainmenu_wrapper_sub_width;
+      }
+    }
+  }
+}
+
+#screen {
+  position: absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height: 100%;
+  background:#2980b9;
+  @include transition(all, 0.5s, ease-out, 0s);
+  #webview {
+    position: absolute;
+    width:100%;
+    height: 100%;
+    top:0;
+    right:0;
+    left:0;
+    bottom:0;
+    background: #fff;
+    box-shadow: 0 0px 14px #444;
+  }
+  .iframe-cover {
+    display: block;
+    content:'';
+    position: absolute;
+    top:0;
+    right:0;
+    left:0;
+    bottom:0;
+    width:100%;
+    height: 100%;
+    background:rgba(0,0,0,0);
+    z-index: 100;
+  }
+}
+
+#menu {
+  position: absolute;
+  right:-100%;
+  top:0;
+  width:$mainmenu_wrapper_width + $submenu_wrapper_width;
+  height: 100vh;
+  @include transition(all, 0.5s, ease-out, 0s);
+  // border-left: 1px solid #fff;
+  .mainmenu {
+    position: absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    width: $mainmenu_wrapper_width;
+    height: 100%;
+    color: #333;
+    overflow: hidden;
+    .mainitem {
+      position: relative;
+      opacity: 0.6;
+      border-radius: 4px;
+      &.selected {
+        opacity: 1.0;
+        border:1px solid #aaa;
+        background:rgba(255,255,255,0.1);
+      }
+      width:$mainmenu_item_width !important;
+      height: 120px;
+      color:#fff;
+      @include transition(all, 0.3s, ease-out, 0s);
+      .inner {
+        position: absolute;
+        height: 60px;
+        width:100%;
+        left:24px;
+        top:30px;
+        .title {
+          position: absolute;
+          top:0;
+          left:70px;
+          font-size: 24px;
+        }
+        .description {
+          position: absolute;
+          top:40px;
+          left:70px;
+          font-size:14px;
+        }
+        img {
+          width:56px;
+          height: 56px;
+        }
+      }
+    }
+  }
+  .sub_items {
+    position: absolute;
+    top:0;
+    right:0;
+    bottom:0;
+    width:$submenu_wrapper_width;
+    padding:20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // border:1px solid #ddd;
+    & > div {
+      width:100%;
+    }
+    @include transition(all, 0.5s, ease-out, 0s);
+    .items {
+      padding-left: 34px;
+      &:first-child {
+        padding-left: 0;
+      }
+    }
+    .item {
+      color:#fff;
+      font-weight: 100;
+      opacity: 0.8;
+      .inner {
+        position: relative;
+        height: 84px;
+        .thum {
+          position: absolute;
+          top:10px;
+          left: 10px;
+          width:80px;
+          height: 64px;
+          content: '';
+          background:#fff;
+        }
+        .title {
+          position: absolute;
+          top:16px;
+          left:100px;
+          font-weight: 300;
+          font-size: 18px;
+        }
+      }
+      &.selected {
+        opacity: 1.0;
+        .inner {
+          background:rgba(255,255,255,0.2);
+          border:1px solid rgba(255,255,255,0.8);
+        }
+      }
+    }
+  }
+}
