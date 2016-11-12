@@ -12,7 +12,8 @@ var config = {
   outputFile: 'bundle.js',
   jsPath: './src/js/**/*.js',
   sassPath: './src/style/*.scss',
-  htmlPath: './src/**/*.html'
+  htmlPath: './src/**/*.html',
+  imagePath: './src/image/*.*'
 }
 
 gulp.task('html', function() {
@@ -28,6 +29,11 @@ gulp.task('sass', function() {
   .pipe(sass().on('error', sass.logError))
   .pipe(gulp.dest(config.outputDir))
   .pipe(reload({ stream: true }));
+})
+
+gulp.task('image', function() {
+  gulp.src(config.imagePath)
+  .pipe(gulp.dest(config.outputDir + '/image/'))
 })
 
 gulp.task('browserify', function(done) {
