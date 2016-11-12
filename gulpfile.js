@@ -63,6 +63,6 @@ gulp.task('watch', function() {
   gulp.watch(config.htmlPath, ['html'])
 })
 
-gulp.task('build', ['browserify', 'html', 'sass'])
+gulp.task('build', ['browserify', 'html', 'sass', 'image'])
 
 gulp.task('default', ['build', 'watch', 'browser-sync'])
