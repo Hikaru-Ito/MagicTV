@@ -32,6 +32,7 @@ gulp.task('sass', function() {
 })
 
 gulp.task('image', function() {
+  console.log('===========  🍺  IMAGE  🍺  ===========')
   gulp.src(config.imagePath)
   .pipe(gulp.dest(config.outputDir + '/image/'))
 })
