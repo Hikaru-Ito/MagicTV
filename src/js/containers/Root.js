@@ -19,7 +19,8 @@ export class Root extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      position: [0]
+      position: [0],
+      menu: true
     }
   }
 
@@ -38,9 +39,18 @@ export class Root extends Component {
     })
   }
 
+  hideMenu() {
+    this.setState({ menu: false })
+  }
+
+  showMenu() {
+    this.setState({ menu: true })
+  }
+
   movePosition() {
+    this.showMenu()
     this.setState({
-      position: downToPosition(this.state.position, this.props.menu)
+      position: downToPosition(this.state.position, this.props.menu),
     })
   }
 
@@ -60,6 +70,7 @@ export class Root extends Component {
     console.log(type)
     switch(type) {
       case 'web':
+        this.hideMenu()
         this.refs.screen.loadURL(url)
       break;
 
@@ -89,11 +100,10 @@ export class Root extends Component {
 
   render() {
     const a = getItemByPosition(this.state.position, this.props.menu).title
-    const cx = classNames({
-      full_screen: this.state.position[0] === 0 && this.state.position.length === 1,
-      main_menu: this.state.position[0] != 0 && this.state.position.length === 1,
+    const cx = this.state.menu ? classNames({
+      main_menu: this.state.position.length === 1,
       full_menu: this.state.position.length > 1
-    })
+    }) : 'full_screen'
     return (
       <div id="container" className={cx}>
         <Screen ref="screen" />
