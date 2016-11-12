@@ -50,7 +50,7 @@ export class Root extends Component {
   movePosition() {
     this.showMenu()
     this.setState({
-      position: downToPosition(this.state.position, this.props.menu),
+      position: downToPosition(this.state.position, this.props.menu)
     })
   }
 
@@ -64,6 +64,16 @@ export class Root extends Component {
       position: new_pos
     })
   }
+
+  playFeedback({ title }) {
+    speechSynthesis.cancel()
+    let synthesis = new SpeechSynthesisUtterance();
+    title.match(/[^\x01-\x7E]/) ? synthesis.lang = 'ja-JP' : synthesis.lang = 'en-js'
+    synthesis.rate = 1.0
+    synthesis.text = title
+    speechSynthesis.speak(synthesis)
+  }
+
 
   playContents({ type, url }) {
     // Typeによって、URLの実行方法を変更する
@@ -99,7 +109,7 @@ export class Root extends Component {
   }
 
   render() {
-    const a = getItemByPosition(this.state.position, this.props.menu).title
+    this.playFeedback(getItemByPosition(this.state.position, this.props.menu))
     const cx = this.state.menu ? classNames({
       main_menu: this.state.position.length === 1,
       full_menu: this.state.position.length > 1
