@@ -55,6 +55,16 @@ export class Root extends Component {
     })
   }
 
+  playFeedback({ title }) {
+    speechSynthesis.cancel()
+    let synthesis = new SpeechSynthesisUtterance();
+    title.match(/[^\x01-\x7E]/) ? synthesis.lang = 'ja-JP' : synthesis.lang = 'en-js'
+    synthesis.rate = 1.0
+    synthesis.text = title
+    speechSynthesis.speak(synthesis)
+  }
+
+
   playContents({ type, url }) {
     // Typeによって、URLの実行方法を変更する
     console.log(type)
@@ -88,7 +98,7 @@ export class Root extends Component {
   }
 
   render() {
-    const a = getItemByPosition(this.state.position, this.props.menu).title
+    this.playFeedback(getItemByPosition(this.state.position, this.props.menu))
     const cx = classNames({
       full_screen: this.state.position[0] === 0 && this.state.position.length === 1,
       main_menu: this.state.position[0] != 0 && this.state.position.length === 1,
