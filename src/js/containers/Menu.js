@@ -22,7 +22,7 @@ export class Menu extends Component {
         return false
       }
       return (
-          <Items position={this.props.position} items={this.props.menu[this.props.position[0]].children || {}} />
+          <Items position={this.props.position} now_playing={this.props.now_playing} items={this.props.menu[this.props.position[0]].children || {}} />
       )
     })()
     const subitems_cx = classNames({

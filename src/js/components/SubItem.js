@@ -17,12 +17,19 @@ export class SubItem extends Component {
       var sl = false
       for(let i in this.props.item.position) sl = this.props.position[i] === this.props.item.position[i]
       if(!sl) return ""
-      return ( <Items position={this.props.position} items={this.props.item.children || []}/> )
+      return ( <Items position={this.props.position} now_playing={this.props.now_playing} items={this.props.item.children || []}/> )
     })()
     const item_cx = classNames({
       'item': true,
       'selected': JSON.stringify(this.props.position) === JSON.stringify(this.props.item.position)
     })
+    const playing_icon = (() => {
+      if(JSON.stringify(this.props.now_playing) === JSON.stringify(this.props.item.position)) {
+        return ( <img src="/image/loading2.gif" className="playing_icon" /> )
+      } else {
+        return ""
+      }
+    })()
     const item_thum_style = {
       background:`url(${this.props.item.image || ''}) center center`,
       backgroundSize:'cover'
@@ -32,6 +39,7 @@ export class SubItem extends Component {
         <div className="inner">
           <div className="thum" style={item_thum_style}></div>
           <div className="title">{this.props.item.title}</div>
+          {playing_icon}
         </div>
         {items}
       </div>

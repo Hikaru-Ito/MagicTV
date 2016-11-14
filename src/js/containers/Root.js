@@ -3,12 +3,9 @@ import classNames from 'classnames'
 import Menu from './Menu'
 import Screen from './Screen'
 import { downToPosition, enterPosition, getItemByPosition } from '../middleware/positions'
-import SocketIO from 'socket.io-client'
+import { connectLinda } from '../middleware/linda'
 
-const server_url = "http://localhost:8931"
-const socket = SocketIO(server_url)
-const linda = new Linda().connect(socket)
-const ts = linda.tuplespace("magicknock")
+const { linda, ts } = connectLinda('http://localhost:8931', 'magicknock')
 
 linda.io.on("connect", function(){
   console.log('connect')
@@ -20,7 +17,8 @@ export class Root extends Component {
     super(props)
     this.state = {
       position: [0],
-      menu: true
+      menu: true,
+      now_playing: null
     }
   }
 
@@ -32,6 +30,7 @@ export class Root extends Component {
   }
 
   startWatchLinda() {
+    if(!ts) return
     ts.watch({type:'knock'}, (err, tuple)=> {
       if(!tuple.data.cmd) return
       if(tuple.data.cmd == 'move') this.movePosition()
@@ -77,9 +76,7 @@ export class Root extends Component {
   }
 
 
-  playContents({ type, url }) {
-    // Typeによって、URLの実行方法を変更する
-    console.log(type)
+  playContents({ position, type, url }) {
     switch(type) {
       case 'web':
         this.hideMenu()
@@ -93,6 +90,9 @@ export class Root extends Component {
       default:
         console.log('not found type')
     }
+    this.setState({
+      now_playing: position
+    })
   }
 
   runJS(url) {

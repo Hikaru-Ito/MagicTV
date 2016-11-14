@@ -18,7 +18,11 @@ export class Screen extends Component {
 
   loadURL(url) {
     console.log(url)
-    this.refs.webview.loadURL(url)
+    try {
+      this.refs.webview.loadURL(url)
+    } catch(e) {
+      console.log(e)
+    }
   }
 
   render() {

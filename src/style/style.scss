@@ -239,6 +239,7 @@ body {
       color:#fff;
       font-weight: 100;
       opacity: 0.8;
+			margin: 8px 0;
 			animation-duration: 0.3s;
       animation-name: fade-in;
       .inner {
@@ -262,6 +263,14 @@ body {
 					color:#fff;
 					text-shadow: 0 0 4px #000;
         }
+				.playing_icon {
+					position: absolute;
+					right:16px;
+					top:8px;
+					width: 34px;
+					height: 34px;
+					top:25px;
+				}
       }
       &.selected {
         opacity: 1.0;
