@@ -67,8 +67,8 @@ export class Root extends Component {
 
   playFeedback({ title }) {
     speechSynthesis.cancel()
-    let synthesis = new SpeechSynthesisUtterance();
-    title.match(/[^\x01-\x7E]/) ? synthesis.lang = 'ja-JP' : synthesis.lang = 'en-js'
+    let synthesis = new SpeechSynthesisUtterance()
+    synthesis.lang = 'ja-JP'
     synthesis.rate = 1.0
     synthesis.text = title
     speechSynthesis.speak(synthesis)
