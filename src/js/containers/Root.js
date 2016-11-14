@@ -56,7 +56,21 @@ export class Root extends Component {
 
   enterPosition() {
     let new_pos = enterPosition(this.state.position, this.props.menu)
-    if(new_pos === 'play') {
+    //全画面表示しているときに強打タップすると次のコンテンツを再生する
+    if(new_pos === 'play' && !this.state.menu) {
+      let position = downToPosition(this.state.position, this.props.menu)
+      new_pos = enterPosition(position, this.props.menu)
+      if (new_pos === 'play') {
+        this.setState({ position: position })
+        this.playContents(getItemByPosition(position, this.props.menu))
+        return
+      }
+      this.setState({
+        position: position,
+        menu: true
+      })
+      return
+    } else if(new_pos === 'play') {
       this.playContents(getItemByPosition(this.state.position, this.props.menu))
       return
     }
