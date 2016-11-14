@@ -42,16 +42,15 @@ export class Root extends Component {
     this.setState({ menu: false })
   }
 
-  // showMenu() {
-    // this.setState({ menu: true })
-  // }
-
   movePosition() {
-    // this.showMenu()
-    this.setState({
-      menu: true,
-      position: downToPosition(this.state.position, this.props.menu)
-    })
+    // MENUが隠れた状態だったらMENUを表示する
+    if (this.state.menu) {
+      this.setState({
+        position: downToPosition(this.state.position, this.props.menu)
+      })
+    } else {
+      this.setState({ menu: true })
+    }
   }
 
   enterPosition() {
