@@ -67,9 +67,10 @@ export class Root extends Component {
   }
 
   playFeedback({ title }) {
+    return;
     speechSynthesis.cancel()
-    let synthesis = new SpeechSynthesisUtterance();
-    title.match(/[^\x01-\x7E]/) ? synthesis.lang = 'ja-JP' : synthesis.lang = 'en-js'
+    let synthesis = new SpeechSynthesisUtterance()
+    synthesis.lang = 'ja-JP'
     synthesis.rate = 1.0
     synthesis.text = title
     speechSynthesis.speak(synthesis)
@@ -110,7 +111,8 @@ export class Root extends Component {
   }
 
   render() {
-    this.playFeedback(getItemByPosition(this.state.position, this.props.menu))
+    const now = getItemByPosition(this.state.position, this.props.menu)
+    this.playFeedback(now)
     const cx = this.state.menu ? classNames({
       main_menu: this.state.position.length === 1,
       full_menu: this.state.position.length > 1

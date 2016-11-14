@@ -23,10 +23,14 @@ export class SlideMenu extends Component {
         'mainitem': true,
         'selected': this.props.position[0] === i
       })
+      const item_inner_style = {
+        background:`url(${item.image || ''}) center center`,
+        backgroundSize:'cover'
+      }
       return (
         <div className={item_cx} key={i}>
-          <div className="inner">
-            <img src="./image/len.png" />
+          <div className="inner" style={item_inner_style}>
+            <div className="bg_cover"></div>
             <div className="title">{item.title}</div>
             <div className="description">{item.description || "description"}</div>
           </div>
@@ -36,7 +40,7 @@ export class SlideMenu extends Component {
     const settings = {
       className: 'center',
       centerMode: true,
-      centerPadding: '200px',
+      centerPadding: '280px',
       slidesToShow: 4,
       slidesToScroll: 1,
       vertical: true,
