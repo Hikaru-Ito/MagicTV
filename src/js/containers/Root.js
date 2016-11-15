@@ -11,6 +11,10 @@ linda.io.on("connect", function(){
   console.log('connect')
 })
 
+var synthesis = new SpeechSynthesisUtterance()
+synthesis.lang = 'ja-JP'
+synthesis.rate = 1.0
+
 export class Root extends Component {
 
   constructor(props) {
@@ -66,11 +70,7 @@ export class Root extends Component {
   }
 
   playFeedback({ title }) {
-    return;
     speechSynthesis.cancel()
-    let synthesis = new SpeechSynthesisUtterance()
-    synthesis.lang = 'ja-JP'
-    synthesis.rate = 1.0
     synthesis.text = title
     speechSynthesis.speak(synthesis)
   }
