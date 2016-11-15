@@ -38,6 +38,10 @@ export class Root extends Component {
     })
   }
 
+  showMenu() {
+    this.setState({ menu: true })
+  }
+
   hideMenu() {
     this.setState({ menu: false })
   }
@@ -49,7 +53,7 @@ export class Root extends Component {
         position: downToPosition(this.state.position, this.props.menu)
       })
     } else {
-      this.setState({ menu: true })
+      this.showMenu()
     }
   }
 
