@@ -3,16 +3,17 @@ import classNames from 'classnames'
 import Menu from './Menu'
 import Screen from './Screen'
 import { downToPosition, enterPosition, getItemByPosition } from '../middleware/positions'
-import SocketIO from 'socket.io-client'
+import { connectLinda } from '../middleware/linda'
 
-const server_url = "http://localhost:8931"
-const socket = SocketIO(server_url)
-const linda = new Linda().connect(socket)
-const ts = linda.tuplespace("magicknock")
+const { linda, ts } = connectLinda('http://localhost:8931', 'magicknock')
 
 linda.io.on("connect", function(){
   console.log('connect')
 })
+
+var synthesis = new SpeechSynthesisUtterance()
+synthesis.lang = 'ja-JP'
+synthesis.rate = 1.0
 
 export class Root extends Component {
 
@@ -20,7 +21,8 @@ export class Root extends Component {
     super(props)
     this.state = {
       position: [0],
-      menu: true
+      menu: true,
+      now_playing: null
     }
   }
 
@@ -32,6 +34,7 @@ export class Root extends Component {
   }
 
   startWatchLinda() {
+    if(!ts) return
     ts.watch({type:'knock'}, (err, tuple)=> {
       if(!tuple.data.cmd) return
       if(tuple.data.cmd == 'move') this.movePosition()
@@ -39,25 +42,42 @@ export class Root extends Component {
     })
   }
 
+  showMenu() {
+    this.setState({ menu: true })
+  }
+
   hideMenu() {
     this.setState({ menu: false })
   }
 
-  // showMenu() {
-    // this.setState({ menu: true })
-  // }
-
   movePosition() {
-    // this.showMenu()
-    this.setState({
-      menu: true,
-      position: downToPosition(this.state.position, this.props.menu)
-    })
+    // MENUが隠れた状態だったらMENUを表示する
+    if (this.state.menu) {
+      this.setState({
+        position: downToPosition(this.state.position, this.props.menu)
+      })
+    } else {
+      this.showMenu()
+    }
   }
 
   enterPosition() {
     let new_pos = enterPosition(this.state.position, this.props.menu)
-    if(new_pos === 'play') {
+    //全画面表示しているときに強打タップすると次のコンテンツを再生する
+    if(new_pos === 'play' && !this.state.menu) {
+      let position = downToPosition(this.state.position, this.props.menu)
+      new_pos = enterPosition(position, this.props.menu)
+      if (new_pos === 'play') {
+        this.setState({ position: position })
+        this.playContents(getItemByPosition(position, this.props.menu))
+        return
+      }
+      this.setState({
+        position: position,
+        menu: true
+      })
+      return
+    } else if(new_pos === 'play') {
       this.playContents(getItemByPosition(this.state.position, this.props.menu))
       return
     }
@@ -68,17 +88,12 @@ export class Root extends Component {
 
   playFeedback({ title }) {
     speechSynthesis.cancel()
-    let synthesis = new SpeechSynthesisUtterance()
-    synthesis.lang = 'ja-JP'
-    synthesis.rate = 1.0
     synthesis.text = title
     speechSynthesis.speak(synthesis)
   }
 
 
-  playContents({ type, url }) {
-    // Typeによって、URLの実行方法を変更する
-    console.log(type)
+  playContents({ position, type, url }) {
     switch(type) {
       case 'web':
         this.hideMenu()
@@ -92,6 +107,9 @@ export class Root extends Component {
       default:
         console.log('not found type')
     }
+    this.setState({
+      now_playing: position
+    })
   }
 
   runJS(url) {
@@ -110,7 +128,8 @@ export class Root extends Component {
   }
 
   render() {
-    this.playFeedback(getItemByPosition(this.state.position, this.props.menu))
+    const now = getItemByPosition(this.state.position, this.props.menu)
+    this.playFeedback(now)
     const cx = this.state.menu ? classNames({
       main_menu: this.state.position.length === 1,
       full_menu: this.state.position.length > 1

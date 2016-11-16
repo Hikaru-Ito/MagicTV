@@ -14,10 +14,11 @@
     backface-visibility:hidden;
     -webkit-perspective: 1000;
 }
-$submenu_wrapper_width:540px;
-$mainmenu_wrapper_width:340px;
-$mainmenu_wrapper_sub_width:240px;
-$mainmenu_item_width:300px;
+// 1920x1080
+$submenu_wrapper_width:640px; // 640px
+$mainmenu_wrapper_width:380px;
+$mainmenu_wrapper_sub_width:380px;
+$mainmenu_item_width:330px;
 
 html {
   font-family: 'Noto Sans JP', sans-serif;
@@ -33,7 +34,8 @@ body {
   height: 100vh;
   overflow: hidden;
   background:#2c3e50;
-  background-image:url(image/bg2.jpg);
+	// background-image: url(image/bg.png);
+  background-image:url(https://www.splitshire.com/wp-content/uploads/2014/11/SplitShire-03692-1800x1200.jpg);
   background-position: center center;
   background-size: cover;
   content:'';
@@ -50,20 +52,21 @@ body {
   }
   &.main_menu {
     #screen {
-      left:-200px;
+      left:-250px;
       transform: scale(0.6);
       transform-origin:center;
     }
     #menu {
-      right:-$submenu_wrapper_width + 50px;
+      right:-$submenu_wrapper_width + 120px;
     }
   }
   &.full_menu {
     #screen {
-      left:30px;
-      top:160px;
+      // left:30px;
+      // top:160px;
+			left:-500px;
       transform: scale(0.4);
-      transform-origin:top left;
+      // transform-origin:top left;
     }
     #menu {
       width:$mainmenu_wrapper_sub_width + $submenu_wrapper_width;
@@ -92,7 +95,7 @@ body {
     left:0;
     bottom:0;
     background: #fff;
-    box-shadow: 0 0px 14px #444;
+    adow: 0 0px 14px #444;
   }
   .iframe-cover {
     display: block;
@@ -109,6 +112,15 @@ body {
   }
 }
 
+#titleBar {
+	position: absolute;
+	top:100px;
+	left:140px;
+	color:#fff;
+	font-weight: 100;
+	font-size: 36px;
+}
+
 #menu {
   position: absolute;
   right:-100%;
@@ -116,7 +128,6 @@ body {
   width:$mainmenu_wrapper_width + $submenu_wrapper_width;
   height: 100vh;
   @include transition(all, 0.5s, ease-out, 0s);
-  // border-left: 1px solid #fff;
   .mainmenu {
     position: absolute;
     top:0;
@@ -127,35 +138,75 @@ body {
     color: #333;
     overflow: hidden;
     .mainitem {
+			&.selected {
+				opacity: 1.0;
+				filter: none;
+				-webkit-filter: grayscale(0%);
+				background:rgba(255,255,255,0.2);
+			}
       position: relative;
       opacity: 0.6;
-      border-radius: 4px;
-      &.selected {
-        opacity: 1.0;
-        border:1px solid #aaa;
-        background:rgba(255,255,255,0.1);
-      }
+      border-radius: 8px;
+			margin:16px 0;
+			filter: gray;
+			-webkit-filter: grayscale(100%);
       width:$mainmenu_item_width !important;
-      height: 120px;
+      height: 150px;
       color:#fff;
+			box-shadow: 0 0 12px #000;
       @include transition(all, 0.3s, ease-out, 0s);
       .inner {
         position: absolute;
-        height: 60px;
+				height:100%;
         width:100%;
-        left:24px;
-        top:30px;
+        left:0;
+        top:0;
+				bottom:0;
+				right:0;
+				border-radius: 4px;
+				background:rgba(30,136,229,0.9);
+  			background-size: cover;
+				z-index: 0;
+				overflow: hidden;
+				&:before{
+				  content: '';
+				  background: inherit;/*.bgImageで設定した背景画像を継承する*/
+				  -webkit-filter: blur(5px);
+				  filter: blur(5px);
+				  position: absolute;
+				  top: -5px;
+				  left: -5px;
+				  right: -5px;
+				  bottom: -5px;
+				  z-index: -1;/*重なり順序を一番下にしておく*/
+				}
+				.bg_cover {
+					position: absolute;
+					display: block;
+					top:0;
+					right:0;
+					bottom:0;
+					left:0;
+					content:'';
+					width:100%;
+					height: 100%;
+					z-index: 0;
+					background:rgba(0,0,0,0.2);
+				}
         .title {
+					font-weight: 300;
           position: absolute;
-          top:0;
-          left:70px;
-          font-size: 24px;
+          top:60px;
+          left:24px;
+          font-size: 28px;
+					text-shadow: 0 0px 6px #000;
         }
         .description {
           position: absolute;
-          top:40px;
-          left:70px;
-          font-size:14px;
+          bottom:16px;
+          left:24px;
+          font-size:16px;
+					text-shadow: 0 2px 2px #333;
         }
         img {
           width:56px;
@@ -166,19 +217,18 @@ body {
   }
   .sub_items {
     position: absolute;
-    top:0;
+    top:300px;
     right:0;
-    bottom:0;
+    // bottom:0;
     width:$submenu_wrapper_width;
     padding:20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    // border:1px solid #ddd;
     & > div {
       width:100%;
     }
-    @include transition(all, 0.5s, ease-out, 0s);
+    @include transition(all, 0.4s, ease-out, 0s);
     .items {
       padding-left: 34px;
       &:first-child {
@@ -189,6 +239,9 @@ body {
       color:#fff;
       font-weight: 100;
       opacity: 0.8;
+			margin: 8px 0;
+			animation-duration: 0.3s;
+      animation-name: fade-in;
       .inner {
         position: relative;
         height: 84px;
@@ -207,15 +260,43 @@ body {
           left:100px;
           font-weight: 300;
           font-size: 18px;
+					color:#fff;
+					text-shadow: 0 0 4px #000;
         }
+				.playing_icon {
+					position: absolute;
+					right:16px;
+					top:8px;
+					width: 34px;
+					height: 34px;
+					top:25px;
+				}
       }
       &.selected {
         opacity: 1.0;
         .inner {
-          background:rgba(255,255,255,0.2);
-          border:1px solid rgba(255,255,255,0.8);
+          background:rgba(255,255,255,0.3);
+					box-shadow: 0 1px 4px #444;
+          border:1px solid rgba(255,255,255,0.2);
         }
       }
     }
   }
+}
+
+@keyframes fade-in {
+	0% {
+		display: none;
+		opacity: 0;
+	}
+
+	1% {
+		display: block;
+		opacity: 0;
+	}
+
+	100% {
+		display: block;
+		opacity: 1;
+	}
 }

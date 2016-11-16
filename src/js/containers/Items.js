@@ -13,7 +13,7 @@ export class Items extends Component {
   render() {
     const items = this.props.items.map((item, i) => {
       return (
-        <SubItem key={i} item={item} position={this.props.position} />
+        <SubItem key={i} item={item} position={this.props.position} now_playing={this.props.now_playing}/>
       )
     })
     // [1,1,2]のとき、[1,1,0][1,1,1][1,1,2][1,1,3]

@@ -14,7 +14,7 @@ function load() {
     document.getElementById('root')
   )
 }
-importMenuData('http://localhost:1126/menudata2.json')
+importMenuData('http://localhost:1126/contents/data.json')
 
 function importMenuData(url) {
   request.get(url)
