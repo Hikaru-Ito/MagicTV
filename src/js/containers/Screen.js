@@ -28,7 +28,7 @@ export class Screen extends Component {
   render() {
     return (
       <div id="screen">
-        <webview id="webview" ref='webview' src="https://apple.com/"></webview>
+        <webview id="webview" ref='webview' src="http://localhost:1126/ma_contents/Movie/weatherd.html"></webview>
         <div className="iframe-cover"></div>
       </div>
     )

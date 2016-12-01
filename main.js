@@ -23,7 +23,7 @@ function createWindow () {
       frame: true,
       fullscreen:true,
       show: true,
-      resizable: false,
+      resizable: true,
   })
   // and load the index.html of the app.
   mainWindow.loadURL(url.format({

@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Slider from 'react-slick'
 import classNames from 'classnames'
 import MainItem from './MainItem'
 
@@ -50,11 +49,12 @@ export class SlideMenu extends Component {
       arrows:false,
       accessibility:false
     }
+    const mainmenu_style = {
+      top: `${300-(this.props.position[0]*166)}px`
+    }
     return (
-      <div className='mainmenu'>
-        <Slider ref='slider' {...settings}>
+      <div className='mainmenu' style={mainmenu_style}>
         {items}
-        </Slider>
       </div>
     )
   }

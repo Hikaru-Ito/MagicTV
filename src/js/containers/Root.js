@@ -121,6 +121,8 @@ export class Root extends Component {
   handleKeydown(e) {
     if(e.key == 'Enter') {
       this.enterPosition()
+    } else if(e.key == 'f') {
+      this.hideMenu()
     } else {
       this.movePosition()
     }

@@ -18,8 +18,8 @@ function addItemPosition(prefix, items) {
 
 function addReturnItem(items) {
   const return_data = {
-    "title": "Return",
-    "image": "",
+    "title": "戻る",
+    "image": "http://localhost:1126/image/back.png",
     "type": "return"
   }
   items.unshift(return_data)

@@ -95,7 +95,7 @@ body {
     left:0;
     bottom:0;
     background: #fff;
-    adow: 0 0px 14px #444;
+    // adow: 0 0px 14px #444;
   }
   .iframe-cover {
     display: block;
@@ -136,7 +136,7 @@ body {
     width: $mainmenu_wrapper_width;
     height: 100%;
     color: #333;
-    overflow: hidden;
+		@include transition(all, 0.4s, ease-out, 0s);
     .mainitem {
 			&.selected {
 				opacity: 1.0;

@@ -38,7 +38,7 @@ export class Menu extends Component {
     })()
     console.log(position_sum)
     const subitems_style = {
-      top: `${300-(position_sum*92)}px`
+      top: `${400-(position_sum*92)}px`
     }
     return (
       <div id="menu">
