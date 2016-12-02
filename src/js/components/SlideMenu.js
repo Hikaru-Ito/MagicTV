@@ -12,9 +12,6 @@ export class SlideMenu extends Component {
   }
 
   componentDidUpdate() {
-    setTimeout(()=> {
-      this.refs.slider.slickGoTo(this.props.position[0])
-    },0)
   }
   render() {
     const items = this.props.menu.map((item, i) => {

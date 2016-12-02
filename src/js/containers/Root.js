@@ -31,6 +31,7 @@ export class Root extends Component {
     window.addEventListener('keydown', this.handleKeydown.bind(this))
     // LindaServer
     this.startWatchLinda()
+    this.watchControllerCmd()
   }
 
   startWatchLinda() {
@@ -39,6 +40,13 @@ export class Root extends Component {
       if(!tuple.data.cmd) return
       if(tuple.data.cmd == 'move') this.movePosition()
       if(tuple.data.cmd == 'enter') this.enterPosition()
+    })
+  }
+
+  watchControllerCmd() {
+    window.require('electron').ipcRenderer.on('cmd', (event, message) => {
+      if(message == 'move') this.movePosition()
+      if(message == 'enter') this.enterPosition()
     })
   }
 
@@ -91,7 +99,6 @@ export class Root extends Component {
     synthesis.text = title
     speechSynthesis.speak(synthesis)
   }
-
 
   playContents({ position, type, url }) {
     switch(type) {

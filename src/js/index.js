@@ -4,7 +4,6 @@ import Root from './containers/Root'
 import MenuData from '../../menudata.json'
 import ConvertMenuData from './middleware/convert_menudata'
 import request from 'axios'
-
 var format_menudata = ConvertMenuData(MenuData.menu)
 console.log(format_menudata)
 
