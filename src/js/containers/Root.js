@@ -3,13 +3,6 @@ import classNames from 'classnames'
 import Menu from './Menu'
 import Screen from './Screen'
 import { downToPosition, enterPosition, getItemByPosition } from '../middleware/positions'
-import { connectLinda } from '../middleware/linda'
-
-const { linda, ts } = connectLinda('http://localhost:8931', 'magicknock')
-
-linda.io.on("connect", function(){
-  console.log('connect')
-})
 
 var synthesis = new SpeechSynthesisUtterance()
 synthesis.lang = 'ja-JP'
@@ -29,18 +22,7 @@ export class Root extends Component {
   componentDidMount() {
     // Keybind
     window.addEventListener('keydown', this.handleKeydown.bind(this))
-    // LindaServer
-    this.startWatchLinda()
     this.watchControllerCmd()
-  }
-
-  startWatchLinda() {
-    if(!ts) return
-    ts.watch({type:'knock'}, (err, tuple)=> {
-      if(!tuple.data.cmd) return
-      if(tuple.data.cmd == 'move') this.movePosition()
-      if(tuple.data.cmd == 'enter') this.enterPosition()
-    })
   }
 
   watchControllerCmd() {

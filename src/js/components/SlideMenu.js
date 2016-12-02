@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import classNames from 'classnames'
-import MainItem from './MainItem'
 
 export class SlideMenu extends Component {
 

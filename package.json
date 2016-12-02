@@ -27,7 +27,6 @@
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
     "gulp-sass": "^2.3.2",
-    "linda": "^1.2.2",
     "node-sass": "^3.11.2",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
