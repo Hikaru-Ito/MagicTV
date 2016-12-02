@@ -6,6 +6,8 @@ const url = require('url')
 const BlendMicro = require('blendmicro')
 const DEVICE_NAME = 'MagicKnock'
 const bm = new BlendMicro(DEVICE_NAME)
+const say = require('say')
+const ipc = electron.ipcMain
 
 bm.on('open', function(){
   console.log('Connect and open MagicKnock')
@@ -51,6 +53,12 @@ function createWindow () {
       }
     })
   });
+
+  // BrowserProcessからの音声FBデータを受け取り再生する
+  ipc.on('speech-message', function(event, arg) {
+    say.stop()
+    say.speak(arg)
+  })
 }
 
 app.on('ready', createWindow)

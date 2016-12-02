@@ -30,6 +30,7 @@
     "node-sass": "^3.11.2",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
+    "say": "^0.11.0",
     "vinyl-source-stream": "^1.1.0"
   },
   "devDependencies": {

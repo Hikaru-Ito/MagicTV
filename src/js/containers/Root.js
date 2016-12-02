@@ -4,9 +4,7 @@ import Menu from './Menu'
 import Screen from './Screen'
 import { downToPosition, enterPosition, getItemByPosition } from '../middleware/positions'
 
-var synthesis = new SpeechSynthesisUtterance()
-synthesis.lang = 'ja-JP'
-synthesis.rate = 1.0
+var ipcRenderer = window.require('electron').ipcRenderer
 
 export class Root extends Component {
 
@@ -26,7 +24,7 @@ export class Root extends Component {
   }
 
   watchControllerCmd() {
-    window.require('electron').ipcRenderer.on('cmd', (event, message) => {
+    ipcRenderer.on('cmd', (event, message) => {
       if(message == 'move') this.movePosition()
       if(message == 'enter') this.enterPosition()
     })
@@ -77,9 +75,7 @@ export class Root extends Component {
   }
 
   playFeedback({ title }) {
-    speechSynthesis.cancel()
-    synthesis.text = title
-    speechSynthesis.speak(synthesis)
+    ipcRenderer.send('speech-message', title)
   }
 
   playContents({ position, type, url }) {
