@@ -1,0 +1,17 @@
+title: "映画"
+type: menu
+image: "https://gyazo.com/5f06608ba4f376bdf1dd91e5b1576df3.png"
+description: "話題の映画"
+children:
+  - title: Sample1
+    type: web
+    url: "https://www.amazon.co.jp/dp/B017RR3PEQ/ref=atv_mv_hom_u_c_pmrec_3_1?_encoding=UTF8&pf_rd_i=home&pf_rd_m=AN1VRQENFRJN5&pf_rd_p=371741349&pf_rd_r=28VK7A2XZ13EKFKR72MF&pf_rd_s=center-6&pf_rd_t=12801"
+    image: "https://gyazo.com/5f06608ba4f376bdf1dd91e5b1576df3.png"
+  - title: Sample2
+    type: web
+    url: "https://www.youtube.com/embed/6q36pnzcw70&autoplay=true"
+    image: "https://gyazo.com/5f06608ba4f376bdf1dd91e5b1576df3.png"
+  - title: Sample3
+    type: web
+    url: "https://www.youtube.com/embed/J9P-n-yvJy4?autoplay=true"
+    image: "https://gyazo.com/5f06608ba4f376bdf1dd91e5b1576df3.png"

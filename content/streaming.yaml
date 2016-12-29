@@ -1,0 +1,17 @@
+title: "ストリーミング"
+type: menu
+image: "https://gyazo.com/5b996eacbaa70134522b0a018737fe4b.png"
+description: "離れた場所のリアルタイム映像"
+children:
+  - title: "研究室の映像"
+    type: web
+    url: "http://localhost:1126/contents/Streaming/delta.html"
+    image: "https://gyazo.com/5b996eacbaa70134522b0a018737fe4b.png"
+  - title: "スクランブル交差点の映像"
+    type: web
+    url: "https://www.youtube.com/embed/6q36pnzcw70?autoplay=true"
+    image: "https://gyazo.com/5b996eacbaa70134522b0a018737fe4b.png"
+  - title: "宇宙映像"
+    type: web
+    url: "https://www.youtube.com/embed/J9P-n-yvJy4?autoplay=true"
+    image: "https://gyazo.com/5b996eacbaa70134522b0a018737fe4b.png"

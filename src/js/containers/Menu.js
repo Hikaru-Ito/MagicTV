@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import classNames from 'classnames'
 import Items from './Items'
-import Slider from 'react-slick'
 import SlideMenu from '../components/SlideMenu'
 
 export class Menu extends Component {

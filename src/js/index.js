@@ -1,11 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import Root from './containers/Root'
-import MenuData from '../../menudata.json'
 import ConvertMenuData from './middleware/convert_menudata'
 import request from 'axios'
-var format_menudata = ConvertMenuData(MenuData.menu)
-console.log(format_menudata)
+var format_menudata;
 
 function load() {
   ReactDOM.render(
@@ -13,7 +11,7 @@ function load() {
     document.getElementById('root')
   )
 }
-importMenuData('http://localhost:1126/ma_contents/menudata.json')
+importMenuData('http://localhost:4453/menudata.json')
 
 function importMenuData(url) {
   request.get(url)

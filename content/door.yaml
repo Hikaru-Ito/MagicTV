@@ -1,0 +1,9 @@
+title: "ドア"
+type: menu
+image: "https://gyazo.com/4cdc0106fdb984ab6f7bc58b5131d01d.png"
+description: "研究室のドア"
+children:
+  - title: "ドアを開ける"
+    type: script
+    url: "http://localhost:1126/contents/Door/open.js"
+    image: "https://gyazo.com/4cdc0106fdb984ab6f7bc58b5131d01d.png"

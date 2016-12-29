@@ -1,0 +1,13 @@
+title: "部屋の照明"
+type: menu
+image: "https://gyazo.com/1f3e50bfb0d3886e181942e65641282b.png"
+description: "研究室の照明"
+children:
+  - title: "電気をつける"
+    type: script
+    url: "http://localhost:1126/contents/Light/deltaLightOn.js"
+    image: "https://gyazo.com/1f3e50bfb0d3886e181942e65641282b.png"
+  - title: "電気を消す"
+    type: script
+    url: "http://localhost:1126/contents/Light/deltaLightOff.js"
+    image: "https://gyazo.com/1f3e50bfb0d3886e181942e65641282b.png"
