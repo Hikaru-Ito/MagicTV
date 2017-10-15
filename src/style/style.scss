@@ -15,10 +15,10 @@
     -webkit-perspective: 1000;
 }
 // 1920x1080
-$submenu_wrapper_width:640px; // 640px
-$mainmenu_wrapper_width:380px;
-$mainmenu_wrapper_sub_width:380px;
-$mainmenu_item_width:330px;
+$submenu_wrapper_width:33vw; // 640px
+$mainmenu_wrapper_width:20vw;
+$mainmenu_wrapper_sub_width:20vw;
+$mainmenu_item_width:20vw;
 
 html {
   font-family: 'Noto Sans JP', sans-serif;
@@ -52,19 +52,19 @@ body {
   }
   &.main_menu {
     #screen {
-      left:-250px;
+      left:-13vw;
       transform: scale(0.6);
       transform-origin:center;
     }
     #menu {
-      right:-$submenu_wrapper_width + 120px;
+      right:-$submenu_wrapper_width + 6vw;
     }
   }
   &.full_menu {
     #screen {
       // left:30px;
       // top:160px;
-			left:-500px;
+			left:-26vw;
       transform: scale(0.4);
       // transform-origin:top left;
     }
@@ -121,6 +121,32 @@ body {
 	font-size: 36px;
 }
 
+#toolbox {
+  position: absolute;
+  top:64px;
+  left: 64px;
+  width: 50vw;
+  height: 80px;
+  input {
+    display: inline-block;
+    font-size: 32px;
+    color:#fff;
+    background: rgba(255,255,255,0.2);
+    border:0px;
+    padding: 8px 16px;
+    border-radius: 4px;
+    margin-right:16px;
+  }
+  .loadButton {
+    display: inline-block;
+    color:#fff;
+    padding:8px 16px;
+    background:rgba(255,255,255,0.4);
+    border-radius: 4px;
+    cursor: pointer;
+  }
+}
+
 #menu {
   position: absolute;
   right:-100%;
@@ -142,7 +168,7 @@ body {
 				opacity: 1.0;
 				filter: none;
 				-webkit-filter: grayscale(0%);
-				background:rgba(255,255,255,0.2);
+				background:rgba(255,255,255,0.4);
 			}
       position: relative;
       opacity: 0.6;
@@ -153,7 +179,8 @@ body {
       width:$mainmenu_item_width !important;
       height: 150px;
       color:#fff;
-			box-shadow: 0 0 12px #000;
+      background:rgba(255,255,255,0.1);
+      box-shadow: 0 0 12px #000;
       @include transition(all, 0.3s, ease-out, 0s);
       .inner {
         position: absolute;
@@ -220,7 +247,7 @@ body {
     top:300px;
     right:0;
     // bottom:0;
-    width:$submenu_wrapper_width;
+    width:calc(33vw - 34px);
     padding:20px;
     display: flex;
     justify-content: center;
@@ -253,6 +280,15 @@ body {
           height: 64px;
           content: '';
           background:#fff;
+          &:after {
+            position: absolute;
+            top:0;
+            left: 0;
+            right:0;
+            bottom: 0;
+            content:'';
+            background: rgba(255,255,255,0.5);
+          }
         }
         .title {
           position: absolute;

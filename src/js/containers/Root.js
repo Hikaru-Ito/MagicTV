@@ -2,7 +2,10 @@ import React, { Component } from 'react'
 import classNames from 'classnames'
 import Menu from './Menu'
 import Screen from './Screen'
+import ToolBox from './ToolBox'
+
 import { downToPosition, enterPosition, getItemByPosition } from '../middleware/positions'
+import loadSerenData from '../middleware/load_content_data'
 
 var ipcRenderer = window.require('electron').ipcRenderer
 
@@ -13,8 +16,10 @@ export class Root extends Component {
     this.state = {
       position: [0],
       menu: true,
-      now_playing: null
+      now_playing: null,
+        menu_content: this.props.menu
     }
+      this.handleChangeSrcURL = this.handleChangeSrcURL.bind(this)
   }
 
   componentDidMount() {
@@ -42,7 +47,7 @@ export class Root extends Component {
     // MENUが隠れた状態だったらMENUを表示する
     if (this.state.menu) {
       this.setState({
-        position: downToPosition(this.state.position, this.props.menu)
+        position: downToPosition(this.state.position, this.state.menu_content)
       })
     } else {
       this.showMenu()
@@ -50,14 +55,14 @@ export class Root extends Component {
   }
 
   enterPosition() {
-    let new_pos = enterPosition(this.state.position, this.props.menu)
+    let new_pos = enterPosition(this.state.position, this.state.menu_content)
     //全画面表示しているときに強打タップすると次のコンテンツを再生する
     if(new_pos === 'play' && !this.state.menu) {
-      let position = downToPosition(this.state.position, this.props.menu)
-      new_pos = enterPosition(position, this.props.menu)
+      let position = downToPosition(this.state.position, this.state.menu_content)
+      new_pos = enterPosition(position, this.state.menu_content)
       if (new_pos === 'play') {
         this.setState({ position: position })
-        this.playContents(getItemByPosition(position, this.props.menu))
+        this.playContents(getItemByPosition(position, this.state.menu_content))
         return
       }
       this.setState({
@@ -66,7 +71,7 @@ export class Root extends Component {
       })
       return
     } else if(new_pos === 'play') {
-      this.playContents(getItemByPosition(this.state.position, this.props.menu))
+      this.playContents(getItemByPosition(this.state.position, this.state.menu_content))
       return
     }
     this.setState({
@@ -90,7 +95,8 @@ export class Root extends Component {
       break;
 
       default:
-        console.log('not found type')
+        this.hideMenu()
+        this.refs.screen.loadURL(url)
     }
     this.setState({
       now_playing: position
@@ -106,16 +112,24 @@ export class Root extends Component {
   handleKeydown(e) {
     if(e.key == 'Enter') {
       this.enterPosition()
-    } else if(e.key == 'f') {
-      this.hideMenu()
-    } else {
+    } else if(e.key == 'ArrowDown'){
       this.movePosition()
     }
-    console.log(getItemByPosition(this.state.position, this.props.menu))
+  }
+
+  handleChangeSrcURL(e, value) {
+      let url = `http://serencast.com/${value}/json`
+      console.log(url);
+      loadSerenData(url).then(data => {
+          this.setState({menu_content: data, position: [0]})
+      }).catch(err => {
+          console.log('ERR')
+          console.log(err)
+      });
   }
 
   render() {
-    const now = getItemByPosition(this.state.position, this.props.menu)
+    const now = getItemByPosition(this.state.position, this.state.menu_content)
     this.playFeedback(now)
     const cx = this.state.menu ? classNames({
       main_menu: this.state.position.length === 1,
@@ -123,10 +137,11 @@ export class Root extends Component {
     }) : 'full_screen'
     return (
       <div id="container" className={cx}>
-        <Screen ref="screen" />
+          <ToolBox changeSrcURL={this.handleChangeSrcURL} />
+          <Screen ref="screen" />
         <Menu
           {...this.state}
-          menu={this.props.menu}
+          menu={this.state.menu_content}
         />
       </div>
     )

@@ -32,19 +32,6 @@ export class SlideMenu extends Component {
         </div>
       )
     })
-    const settings = {
-      className: 'center',
-      centerMode: true,
-      centerPadding: '280px',
-      slidesToShow: 4,
-      slidesToScroll: 1,
-      vertical: true,
-      verticalSwiping: false,
-      infinite: false,
-      speed: 200,
-      arrows:false,
-      accessibility:false
-    }
     const mainmenu_style = {
       top: `${300-(this.props.position[0]*166)}px`
     }

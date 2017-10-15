@@ -11,13 +11,14 @@ function load() {
     document.getElementById('root')
   )
 }
-importMenuData('http://localhost:4453/menudata.json')
+// importMenuData('http://localhost:4453/menudata.json')
+importMenuData('http://serencast.com/HikaruCast/Feed/json')
 
 function importMenuData(url) {
   request.get(url)
   .then(res => {
-    console.log(res.data.menu)
-    format_menudata = ConvertMenuData(res.data.menu)
+    console.log(res.data)
+    format_menudata = ConvertMenuData(res.data)
     load()
   })
   .catch(err => {
