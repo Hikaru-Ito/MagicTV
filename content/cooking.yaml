@@ -1,0 +1,48 @@
+title: "料理レシピ"
+type: menu
+image: "https://gyazo.com/8750dc8288462b4a9d7a4d69298498ee.png"
+description: "料理のレシピを見る"
+children:
+  - title: ココナッツオイルを使ったカレーレシピ
+    type: menu
+    image: "https://gyazo.com/4e2d89ae1370402c80f47b9b3d5bb54d.png"
+    children:
+    - title: "手順1"
+      type: web
+      url: "http://localhost:4453/Cooking/page1.html"
+      image: "https://gyazo.com/bae385919c8c3cb21dbc711ececb29d3.png"
+
+    - title: "手順2"
+      type: web
+      url: "http://localhost:4453/Cooking/page2.html"
+      image: "https://gyazo.com/bae385919c8c3cb21dbc711ececb29d3.png"
+
+    - title: "手順3"
+      type: web
+      url: "http://localhost:4453/Cooking/page3.html"
+      image: "https://gyazo.com/bae385919c8c3cb21dbc711ececb29d3.png"
+
+    - title: "手順4"
+      type: web
+      url: "http://localhost:4453/Cooking/page4.html"
+      image: "https://gyazo.com/bae385919c8c3cb21dbc711ececb29d3.png"
+
+    - title: "手順5"
+      type: web
+      url: "http://localhost:4453/Cooking/page5.html"
+      image: "https://gyazo.com/bae385919c8c3cb21dbc711ececb29d3.png"
+
+    - title: "手順6"
+      type: web
+      url: "http://localhost:4453/Cooking/page6.html"
+      image: "https://gyazo.com/bae385919c8c3cb21dbc711ececb29d3.png"
+
+  - title: マシュマロココアクッキー
+    type: web
+    url: "https://www.youtube.com/embed/Mlyl4Xr1XbQ?autoplay=true"
+    image: "https://i.ytimg.com/vi/Mlyl4Xr1XbQ/hqdefault.jpg"
+
+  - title: 生チョコケーキ
+    type: web
+    url: "https://www.youtube.com/embed/Mlyl4Xr1XbQ?autoplay=true"
+    image: "https://i.ytimg.com/vi/Mlyl4Xr1XbQ/hqdefault.jpg"

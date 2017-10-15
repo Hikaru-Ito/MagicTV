@@ -1,0 +1,21 @@
+title: "Hue"
+type: menu
+image: "https://gyazo.com/1f3e50bfb0d3886e181942e65641282b.png"
+description: "Hueの照明をコントロールする"
+children:
+  - title: "照明をつける"
+    type: script
+    url: "http://localhost:4453/Script/Hue/LightOn.js"
+    image: "https://gyazo.com/1f3e50bfb0d3886e181942e65641282b.png"
+  - title: "照明を消す"
+    type: script
+    url: "http://localhost:4453/Script/Hue/LightOff.js"
+    image: "https://gyazo.com/1f3e50bfb0d3886e181942e65641282b.png"
+  - title: "照明を青にする"
+    type: script
+    url: "http://localhost:4453/Script/Hue/LightOnBlue.js"
+    image: "https://gyazo.com/1f3e50bfb0d3886e181942e65641282b.png"
+  - title: "照明をピンクにする"
+    type: script
+    url: "http://localhost:4453/Script/Hue/LightOnPink.js"
+    image: "https://gyazo.com/1f3e50bfb0d3886e181942e65641282b.png"

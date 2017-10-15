@@ -25,7 +25,7 @@ export class SubItem extends Component {
     })
     const playing_icon = (() => {
       if(JSON.stringify(this.props.now_playing) === JSON.stringify(this.props.item.position)) {
-        return ( <img src="http://localhost:1126/image/loading2.gif" className="playing_icon" /> )
+        return ( <img src="http://localhost:4453/Images/loading.gif" className="playing_icon" /> )
       } else {
         return ""
       }

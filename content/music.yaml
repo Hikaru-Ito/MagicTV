@@ -3,21 +3,6 @@ description: 音楽を再生します
 type: menu
 image: https://gyazo.com/b656a9931a80d3c4faa45b884a44aa70.png
 children:
-  - title: 宇多田ヒカル
-    description: 宇多田ヒカルの曲集
-    type: menu
-    image: http://image.itmedia.co.jp/nl/articles/1512/01/wk_1501201utada01.jpg
-    children:
-      - title: Automatic
-        description:
-        type: web
-        image: https://i.ytimg.com/vi/L_QVB4Qdh6o/hqdefault.jpg
-        url: https://www.youtube.com/embed/L_QVB4Qdh6o?autoplay=true
-      - title: Goodbye Happiness
-        description:
-        type: web
-        image: https://i.ytimg.com/vi/cfpX8lkaSdk/hqdefault.jpg
-        url: https://www.youtube.com/embed/cfpX8lkaSdk?autoplay=true
   - title: RADWIMPS
     type: menu
     image: "https://gyazo.com/4e2d89ae1370402c80f47b9b3d5bb54d.png"
@@ -25,23 +10,23 @@ children:
       - title: "前前前世"
         type: web
         url: "https://www.youtube.com/embed/PDSkFeMVNFs?autoplay=true"
-        image: "https://gyazo.com/4e2d89ae1370402c80f47b9b3d5bb54d.png"
+        image: "https://i.ytimg.com/vi/PDSkFeMVNFs/hqdefault.jpg"
       - title: "君と羊と青"
         type: web
         url: "https://www.youtube.com/embed/K1u_MwT6zV8?autoplay=true"
-        image: "https://gyazo.com/7438f5497538ee07d2ba69b738ecd928.png"
+        image: "https://i.ytimg.com/vi/K1u_MwT6zV8/hqdefault.jpg"
       - title: "ふたりごと"
         type: web
         url: "https://www.youtube.com/embed/gmLXEmCExIE?autoplay=true"
-        image: "https://gyazo.com/0fa0a4a2b8b0759525703aebe84f5cea.png"
+        image: "https://i.ytimg.com/vi/gmLXEmCExIE/hqdefault.jpg"
       - title: "有心論"
         type: web
         url: "https://www.youtube.com/embed/c2y8Ba3WwPY?autoplay=true"
-        image: "https://gyazo.com/b656a9931a80d3c4faa45b884a44aa70.png"
+        image: "https://i.ytimg.com/vi/c2y8Ba3WwPY/hqdefault.jpg"
       - title: "五月の蝿"
         type: web
         url: "https://www.youtube.com/embed/hoyOjMIunkM?autoplay=true"
-        image: "https://gyazo.com/b656a9931a80d3c4faa45b884a44aa70.png"
+        image: "https://i.ytimg.com/vi/hoyOjMIunkM/hqdefault.jpg"
   - title: "星野源"
     type: menu
     image: "https://gyazo.com/fe104fc1d3aa8029f41d0a6a85877262.png"
@@ -49,19 +34,19 @@ children:
       - title: "恋"
         type: web
         url: "https://www.youtube.com/embed/jhOVibLEDhA?autoplay=true"
-        image: "https://gyazo.com/fe104fc1d3aa8029f41d0a6a85877262.png"
+        image: "https://i.ytimg.com/vi/jhOVibLEDhA/hqdefault.jpg"
       - title: "時よ"
         type: web
         url: "https://www.youtube.com/embed/LGG8grKZhxY?autoplay=true"
-        image: "https://gyazo.com/b656a9931a80d3c4faa45b884a44aa70.png"
+        image: "https://i.ytimg.com/vi/LGG8grKZhxY/hqdefault.jpg"
       - title: "夢の外へ"
         type: web
         url: "https://www.youtube.com/embed/k75GLjixDAs?autoplay=true"
-        image: "https://gyazo.com/b656a9931a80d3c4faa45b884a44aa70.png"
+        image: "https://i.ytimg.com/vi/k75GLjixDAs/hqdefault.jpg"
       - title: SUN
         type: web
         url: "https://www.youtube.com/embed/7gcCRAl58u4?autoplay=true"
-        image: "https://gyazo.com/b656a9931a80d3c4faa45b884a44aa70.png"
+        image: "https://i.ytimg.com/vi/7gcCRAl58u4/hqdefault.jpg"
   - title: "back number"
     type: menu
     image: "https://gyazo.com/1abc3db56ac87160cec2124ac667d849.png"
@@ -69,11 +54,11 @@ children:
       - title: "ハッピーエンド"
         type: web
         url: "https://www.youtube.com/embed/hzWDXge2ANM?autoplay=true"
-        image: "https://gyazo.com/1abc3db56ac87160cec2124ac667d849.png"
+        image: "https://i.ytimg.com/vi/hzWDXge2ANM/hqdefault.jpg"
       - title: "高嶺の花子さん"
         type: web
         url: "https://www.youtube.com/embed/LgLMA1MR7iE?autoplay=true"
-        image: "https://gyazo.com/b656a9931a80d3c4faa45b884a44aa70.png"
+        image: "https://i.ytimg.com/vi/LgLMA1MR7iE/hqdefault.jpg"
       - title: "クリスマスソング"
         type: web
         url: "https://www.youtube.com/embed/JfgOjtq440o?autoplay=true"

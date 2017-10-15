@@ -1,6 +1,69 @@
 {
   "menu": [
     {
+      "title": "料理レシピ",
+      "type": "menu",
+      "image": "https://gyazo.com/8750dc8288462b4a9d7a4d69298498ee.png",
+      "description": "料理のレシピを見る",
+      "children": [
+        {
+          "title": "ココナッツオイルを使ったカレーレシピ",
+          "type": "menu",
+          "image": "https://gyazo.com/4e2d89ae1370402c80f47b9b3d5bb54d.png",
+          "children": [
+            {
+              "title": "手順1",
+              "type": "web",
+              "url": "http://localhost:4453/Cooking/page1.html",
+              "image": "https://gyazo.com/bae385919c8c3cb21dbc711ececb29d3.png"
+            },
+            {
+              "title": "手順2",
+              "type": "web",
+              "url": "http://localhost:4453/Cooking/page2.html",
+              "image": "https://gyazo.com/bae385919c8c3cb21dbc711ececb29d3.png"
+            },
+            {
+              "title": "手順3",
+              "type": "web",
+              "url": "http://localhost:4453/Cooking/page3.html",
+              "image": "https://gyazo.com/bae385919c8c3cb21dbc711ececb29d3.png"
+            },
+            {
+              "title": "手順4",
+              "type": "web",
+              "url": "http://localhost:4453/Cooking/page4.html",
+              "image": "https://gyazo.com/bae385919c8c3cb21dbc711ececb29d3.png"
+            },
+            {
+              "title": "手順5",
+              "type": "web",
+              "url": "http://localhost:4453/Cooking/page5.html",
+              "image": "https://gyazo.com/bae385919c8c3cb21dbc711ececb29d3.png"
+            },
+            {
+              "title": "手順6",
+              "type": "web",
+              "url": "http://localhost:4453/Cooking/page6.html",
+              "image": "https://gyazo.com/bae385919c8c3cb21dbc711ececb29d3.png"
+            }
+          ]
+        },
+        {
+          "title": "マシュマロココアクッキー",
+          "type": "web",
+          "url": "https://www.youtube.com/embed/Mlyl4Xr1XbQ?autoplay=true",
+          "image": "https://i.ytimg.com/vi/Mlyl4Xr1XbQ/hqdefault.jpg"
+        },
+        {
+          "title": "生チョコケーキ",
+          "type": "web",
+          "url": "https://www.youtube.com/embed/Mlyl4Xr1XbQ?autoplay=true",
+          "image": "https://i.ytimg.com/vi/Mlyl4Xr1XbQ/hqdefault.jpg"
+        }
+      ]
+    },
+    {
       "title": "ドア",
       "type": "menu",
       "image": "https://gyazo.com/4cdc0106fdb984ab6f7bc58b5131d01d.png",
@@ -9,8 +72,40 @@
         {
           "title": "ドアを開ける",
           "type": "script",
-          "url": "http://localhost:1126/contents/Door/open.js",
+          "url": "http://localhost:4453/Script/door_open.js",
           "image": "https://gyazo.com/4cdc0106fdb984ab6f7bc58b5131d01d.png"
+        }
+      ]
+    },
+    {
+      "title": "Hue",
+      "type": "menu",
+      "image": "https://gyazo.com/1f3e50bfb0d3886e181942e65641282b.png",
+      "description": "Hueの照明をコントロールする",
+      "children": [
+        {
+          "title": "照明をつける",
+          "type": "script",
+          "url": "http://localhost:4453/Script/Hue/LightOn.js",
+          "image": "https://gyazo.com/1f3e50bfb0d3886e181942e65641282b.png"
+        },
+        {
+          "title": "照明を消す",
+          "type": "script",
+          "url": "http://localhost:4453/Script/Hue/LightOff.js",
+          "image": "https://gyazo.com/1f3e50bfb0d3886e181942e65641282b.png"
+        },
+        {
+          "title": "照明を青にする",
+          "type": "script",
+          "url": "http://localhost:4453/Script/Hue/LightOnBlue.js",
+          "image": "https://gyazo.com/1f3e50bfb0d3886e181942e65641282b.png"
+        },
+        {
+          "title": "照明をピンクにする",
+          "type": "script",
+          "url": "http://localhost:4453/Script/Hue/LightOnPink.js",
+          "image": "https://gyazo.com/1f3e50bfb0d3886e181942e65641282b.png"
         }
       ]
     },
@@ -23,13 +118,13 @@
         {
           "title": "電気をつける",
           "type": "script",
-          "url": "http://localhost:1126/contents/Light/deltaLightOn.js",
+          "url": "http://localhost:4453/Script/light_push_delta.js",
           "image": "https://gyazo.com/1f3e50bfb0d3886e181942e65641282b.png"
         },
         {
           "title": "電気を消す",
           "type": "script",
-          "url": "http://localhost:1126/contents/Light/deltaLightOff.js",
+          "url": "http://localhost:4453/Script/light_push_delta.js",
           "image": "https://gyazo.com/1f3e50bfb0d3886e181942e65641282b.png"
         }
       ]
@@ -67,28 +162,6 @@
       "image": "https://gyazo.com/b656a9931a80d3c4faa45b884a44aa70.png",
       "children": [
         {
-          "title": "宇多田ヒカル",
-          "description": "宇多田ヒカルの曲集",
-          "type": "menu",
-          "image": "http://image.itmedia.co.jp/nl/articles/1512/01/wk_1501201utada01.jpg",
-          "children": [
-            {
-              "title": "Automatic",
-              "description": null,
-              "type": "web",
-              "image": "https://i.ytimg.com/vi/L_QVB4Qdh6o/hqdefault.jpg",
-              "url": "https://www.youtube.com/embed/L_QVB4Qdh6o?autoplay=true"
-            },
-            {
-              "title": "Goodbye Happiness",
-              "description": null,
-              "type": "web",
-              "image": "https://i.ytimg.com/vi/cfpX8lkaSdk/hqdefault.jpg",
-              "url": "https://www.youtube.com/embed/cfpX8lkaSdk?autoplay=true"
-            }
-          ]
-        },
-        {
           "title": "RADWIMPS",
           "type": "menu",
           "image": "https://gyazo.com/4e2d89ae1370402c80f47b9b3d5bb54d.png",
@@ -97,31 +170,31 @@
               "title": "前前前世",
               "type": "web",
               "url": "https://www.youtube.com/embed/PDSkFeMVNFs?autoplay=true",
-              "image": "https://gyazo.com/4e2d89ae1370402c80f47b9b3d5bb54d.png"
+              "image": "https://i.ytimg.com/vi/PDSkFeMVNFs/hqdefault.jpg"
             },
             {
               "title": "君と羊と青",
               "type": "web",
               "url": "https://www.youtube.com/embed/K1u_MwT6zV8?autoplay=true",
-              "image": "https://gyazo.com/7438f5497538ee07d2ba69b738ecd928.png"
+              "image": "https://i.ytimg.com/vi/K1u_MwT6zV8/hqdefault.jpg"
             },
             {
               "title": "ふたりごと",
               "type": "web",
               "url": "https://www.youtube.com/embed/gmLXEmCExIE?autoplay=true",
-              "image": "https://gyazo.com/0fa0a4a2b8b0759525703aebe84f5cea.png"
+              "image": "https://i.ytimg.com/vi/gmLXEmCExIE/hqdefault.jpg"
             },
             {
               "title": "有心論",
               "type": "web",
               "url": "https://www.youtube.com/embed/c2y8Ba3WwPY?autoplay=true",
-              "image": "https://gyazo.com/b656a9931a80d3c4faa45b884a44aa70.png"
+              "image": "https://i.ytimg.com/vi/c2y8Ba3WwPY/hqdefault.jpg"
             },
             {
               "title": "五月の蝿",
               "type": "web",
               "url": "https://www.youtube.com/embed/hoyOjMIunkM?autoplay=true",
-              "image": "https://gyazo.com/b656a9931a80d3c4faa45b884a44aa70.png"
+              "image": "https://i.ytimg.com/vi/hoyOjMIunkM/hqdefault.jpg"
             }
           ]
         },
@@ -134,25 +207,25 @@
               "title": "恋",
               "type": "web",
               "url": "https://www.youtube.com/embed/jhOVibLEDhA?autoplay=true",
-              "image": "https://gyazo.com/fe104fc1d3aa8029f41d0a6a85877262.png"
+              "image": "https://i.ytimg.com/vi/jhOVibLEDhA/hqdefault.jpg"
             },
             {
               "title": "時よ",
               "type": "web",
               "url": "https://www.youtube.com/embed/LGG8grKZhxY?autoplay=true",
-              "image": "https://gyazo.com/b656a9931a80d3c4faa45b884a44aa70.png"
+              "image": "https://i.ytimg.com/vi/LGG8grKZhxY/hqdefault.jpg"
             },
             {
               "title": "夢の外へ",
               "type": "web",
               "url": "https://www.youtube.com/embed/k75GLjixDAs?autoplay=true",
-              "image": "https://gyazo.com/b656a9931a80d3c4faa45b884a44aa70.png"
+              "image": "https://i.ytimg.com/vi/k75GLjixDAs/hqdefault.jpg"
             },
             {
               "title": "SUN",
               "type": "web",
               "url": "https://www.youtube.com/embed/7gcCRAl58u4?autoplay=true",
-              "image": "https://gyazo.com/b656a9931a80d3c4faa45b884a44aa70.png"
+              "image": "https://i.ytimg.com/vi/7gcCRAl58u4/hqdefault.jpg"
             }
           ]
         },
@@ -165,13 +238,13 @@
               "title": "ハッピーエンド",
               "type": "web",
               "url": "https://www.youtube.com/embed/hzWDXge2ANM?autoplay=true",
-              "image": "https://gyazo.com/1abc3db56ac87160cec2124ac667d849.png"
+              "image": "https://i.ytimg.com/vi/hzWDXge2ANM/hqdefault.jpg"
             },
             {
               "title": "高嶺の花子さん",
               "type": "web",
               "url": "https://www.youtube.com/embed/LgLMA1MR7iE?autoplay=true",
-              "image": "https://gyazo.com/b656a9931a80d3c4faa45b884a44aa70.png"
+              "image": "https://i.ytimg.com/vi/LgLMA1MR7iE/hqdefault.jpg"
             },
             {
               "title": "クリスマスソング",
@@ -264,66 +337,28 @@
       ]
     },
     {
-      "title": "ストリーミング",
+      "title": "テレビ東京",
       "type": "menu",
-      "image": "https://gyazo.com/5b996eacbaa70134522b0a018737fe4b.png",
-      "description": "離れた場所のリアルタイム映像",
+      "image": "https://i.gyazo.com/0d26c9d6b91730709cd8774c1e81d0af.jpg",
+      "description": "テレビ東京のYouTube動画",
       "children": [
         {
-          "title": "研究室の映像",
+          "title": "孤独のグルメ",
           "type": "web",
-          "url": "http://localhost:1126/contents/Streaming/delta.html",
-          "image": "https://gyazo.com/5b996eacbaa70134522b0a018737fe4b.png"
+          "url": "https://www.youtube.com/embed/RZqRKWargok?autoplay=true",
+          "image": "https://i.ytimg.com/vi/RZqRKWargok/hqdefault.jpg"
         },
         {
-          "title": "スクランブル交差点の映像",
+          "title": "カンブリア宮殿",
           "type": "web",
-          "url": "https://www.youtube.com/embed/6q36pnzcw70?autoplay=true",
-          "image": "https://gyazo.com/5b996eacbaa70134522b0a018737fe4b.png"
+          "url": "https://www.youtube.com/embed/bJhEGQE1zPs?autoplay=true",
+          "image": "https://i.ytimg.com/vi/bJhEGQE1zPs/hqdefault.jpg"
         },
         {
-          "title": "宇宙映像",
+          "title": "ガイアの夜明け",
           "type": "web",
-          "url": "https://www.youtube.com/embed/J9P-n-yvJy4?autoplay=true",
-          "image": "https://gyazo.com/5b996eacbaa70134522b0a018737fe4b.png"
-        }
-      ]
-    },
-    {
-      "title": "テッド",
-      "type": "menu",
-      "image": "https://gyazo.com/07e424fdf6ed5ed3d08a797b374b89d9.png",
-      "description": "TEDの人気動画",
-      "children": [
-        {
-          "title": "ジュリアン・トレジャー「一瞬で変われる人を引きつける話し方」",
-          "type": "web",
-          "url": "https://www.youtube.com/embed/5Ejb5UM6mEo?autoplay=true",
-          "image": "https://gyazo.com/07e424fdf6ed5ed3d08a797b374b89d9.png"
-        },
-        {
-          "title": "アポロ・ロビンス 「人の注意力を操る妙技」",
-          "type": "web",
-          "url": "https://www.youtube.com/embed/QSjD5gOIys4?autoplay=true",
-          "image": "https://gyazo.com/07e424fdf6ed5ed3d08a797b374b89d9.png"
-        },
-        {
-          "title": "ダニエル・ピンク 「やる気に関する驚きの科学」",
-          "type": "web",
-          "url": "https://www.youtube.com/embed/YcJJYQB0mY0?autoplay=true",
-          "image": "https://gyazo.com/07e424fdf6ed5ed3d08a797b374b89d9.png"
-        },
-        {
-          "title": "ウィル・スティーヴン 「頭良さそうにTED風プレゼンをする方法」",
-          "type": "web",
-          "url": "https://www.youtube.com/embed/ToJD5r2SmwI?autoplay=true",
-          "image": "https://gyazo.com/07e424fdf6ed5ed3d08a797b374b89d9.png"
-        },
-        {
-          "title": "エイミー・カディ「面接前にこのポーズをとれ、ボディランゲージが人を作る」",
-          "type": "web",
-          "url": "https://www.youtube.com/embed/flQwXztDdfA?autoplay=true",
-          "image": "https://gyazo.com/07e424fdf6ed5ed3d08a797b374b89d9.png"
+          "url": "https://www.youtube.com/embed/aG__aE_UYio?autoplay=true",
+          "image": "https://i.ytimg.com/vi/aG__aE_UYio/hqdefault.jpg"
         }
       ]
     }

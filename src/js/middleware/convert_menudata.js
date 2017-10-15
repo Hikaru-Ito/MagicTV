@@ -19,7 +19,7 @@ function addItemPosition(prefix, items) {
 function addReturnItem(items) {
   const return_data = {
     "title": "戻る",
-    "image": "http://localhost:1126/image/back.png",
+    "image": "https://i.gyazo.com/05f7bfe365e501e6509e8350fbe1b54d.png",
     "type": "return"
   }
   items.unshift(return_data)

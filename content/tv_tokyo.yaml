@@ -1,0 +1,17 @@
+title: "テレビ東京"
+type: menu
+image: "https://i.gyazo.com/0d26c9d6b91730709cd8774c1e81d0af.jpg"
+description: "テレビ東京のYouTube動画"
+children:
+  - title: "孤独のグルメ"
+    type: web
+    url: "https://www.youtube.com/embed/RZqRKWargok?autoplay=true"
+    image: "https://i.ytimg.com/vi/RZqRKWargok/hqdefault.jpg"
+  - title: "カンブリア宮殿"
+    type: web
+    url: "https://www.youtube.com/embed/bJhEGQE1zPs?autoplay=true"
+    image: "https://i.ytimg.com/vi/bJhEGQE1zPs/hqdefault.jpg"
+  - title: "ガイアの夜明け"
+    type: web
+    url: "https://www.youtube.com/embed/aG__aE_UYio?autoplay=true"
+    image: "https://i.ytimg.com/vi/aG__aE_UYio/hqdefault.jpg"
