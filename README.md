@@ -36,6 +36,16 @@ Execution electron (premise electron command)
 $ electron .
 ```
 
+### Packaging
+
+```bash
+$ electron-packager . MagicTV --platform=darwin --arch=x64 --electronVersion=1.4.13 --icon=icon/magictv2.icns
+```
+
+```bash
+$ electron-installer-dmg ./MagicTV-darwin-x64/MagicTV.app MagicTV
+```
+
 ### Contributors
 
 - [Kento Sasamoto](https://github.com/kentosasa)
